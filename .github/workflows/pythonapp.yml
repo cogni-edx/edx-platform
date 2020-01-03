@@ -1,6 +1,9 @@
 name: Python application
 
-on: [push]
+on:
+  push:
+    branches:
+    - cognimaster
 
 jobs:
   build:
@@ -21,7 +24,7 @@ jobs:
       run: |
         docker login -u nunoferreira840 -p Joaon840#
         tutor config save --set DOCKER_IMAGE_OPENEDX=nunoferreira840/openedx-tutor:1.0
-        tutor images build openedx --build-arg EDX_PLATFORM_REPOSITORY=https://github.com/nunoferreira840/edx-platform.git --build-arg EDX_PLATFORM_VERSION=master
+        tutor images build openedx --build-arg EDX_PLATFORM_REPOSITORY=https://github.com/cognitiva/edx-platform.git --build-arg EDX_PLATFORM_VERSION=cognimaster
         tutor images push openedx
         
     
