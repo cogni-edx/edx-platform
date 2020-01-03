@@ -25,7 +25,8 @@ jobs:
       run: |
         docker login -u nunoferreira840 -p Joaon840#
         tutor config save --set DOCKER_IMAGE_OPENEDX=nunoferreira840/openedx-tutor:1.0
-        
+        tutor images build openedx --build-arg EDX_PLATFORM_REPOSITORY=https://github.com/cognitiva/edx-platform.git 
+        tutor images push openedx
         
         
     
